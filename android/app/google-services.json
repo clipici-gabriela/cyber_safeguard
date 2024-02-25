@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1053824957705",
+    "project_id": "cybersafeguard-34bb3",
+    "storage_bucket": "cybersafeguard-34bb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053824957705:android:431925e67320d457f827d8",
+        "android_client_info": {
+          "package_name": "com.example.cyber_safeguard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV9CukBwcryCgw51H7dh5aDvTM1UmyxCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
