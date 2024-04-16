@@ -1,5 +1,5 @@
+import 'package:cyber_safeguard/screens/login_or_register.dart';
 import 'package:cyber_safeguard/parent_screen/parent_home.dart';
-import 'package:cyber_safeguard/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class AuthPage extends StatelessWidget{
             return const ParentHomeScreen();
           }
           else {
-            return LoginPage();
+            return const LoginOrRegisterPage();
           }          
         },
       ),

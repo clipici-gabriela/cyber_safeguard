@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 
 class ParentHomeScreen extends StatefulWidget {
   const ParentHomeScreen({super.key});
@@ -42,11 +42,20 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
         },
       ),
       body: <Widget>[
-        Scaffold(),
-        Scaffold(),
-        Scaffold(),
-        Scaffold(),
-        Scaffold(),
+        Scaffold(
+          body: Center(
+            child: IconButton(
+              icon: const Icon(Icons.output),
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+              },
+            ),
+          ),
+        ),
+        const Scaffold(),
+        const Scaffold(),
+        const Scaffold(),
+        const Scaffold(),
       ][currentPageIndex],
     );
   }
