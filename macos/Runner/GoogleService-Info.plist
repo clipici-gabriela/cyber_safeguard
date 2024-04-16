@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAromaTbQfKJMq9ifqKTf3XkpE46trBvto</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1053824957705</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cyberSafeguard.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>cybersafeguard-34bb3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cybersafeguard-34bb3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1053824957705:ios:92d38d515d30ca32f827d8</string>
+</dict>
+</plist>
