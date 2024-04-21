@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cyber_safeguard/widgets/custom_button.dart';
-import 'package:cyber_safeguard/widgets/square_tile.dart';
 import 'package:cyber_safeguard/widgets/text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -126,53 +125,6 @@ class _LoginPageState extends State<LoginScreen> {
 
               const SizedBox(
                 height: 25,
-              ),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey.shade400,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      child: Text(
-                        'Or continue with',
-                        style: TextStyle(),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey.shade400,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(
-                height: 10,
-              ),
-
-              //google + apple sign in buttons
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SquareTile(imagePath: 'assests/images/google-logo.png'),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  SquareTile(imagePath: 'assests/images/apple-logo.png'),
-                ],
-              ),
-
-              const SizedBox(
-                height: 50,
               ),
 
               //not a member? register now

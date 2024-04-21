@@ -1,3 +1,4 @@
+import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,7 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
         },
       ),
       body: <Widget>[
+        const GenerateQRCode(),
         Scaffold(
           body: Center(
             child: IconButton(
@@ -42,7 +44,6 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
             ),
           ),
         ),
-        const Scaffold(),
       ][currentPageIndex],
     );
   }
