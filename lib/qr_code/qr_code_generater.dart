@@ -29,7 +29,6 @@ class _GenerateQRCodeState extends State<GenerateQRCode> {
           .doc(user!.uid)
           .get();
       Map<String, dynamic> childData = childDoc.data() as Map<String, dynamic>;
-      print('${user!.uid};${childData['firstName']}');
       setState(() {
         qrData = "${user!.uid};${childData['firstName']}";
       });

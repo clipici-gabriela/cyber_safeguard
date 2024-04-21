@@ -1,7 +1,6 @@
 import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cyber_safeguard/registration_screens/acount_info.dart';
 import 'package:flutter/material.dart';
-
 
 class ChildHomeScreen extends StatefulWidget {
   const ChildHomeScreen({super.key});
@@ -12,7 +11,6 @@ class ChildHomeScreen extends StatefulWidget {
 
 class _ChildHomeScreenState extends State<ChildHomeScreen> {
   int currentPageIndex = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +32,7 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
       ),
       body: <Widget>[
         const GenerateQRCode(),
-        Scaffold(
-          body: Center(
-            child: IconButton(
-              icon: const Icon(Icons.output),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-            ),
-          ),
-        ),
+        const AccountInfoScreen()
       ][currentPageIndex],
     );
   }
