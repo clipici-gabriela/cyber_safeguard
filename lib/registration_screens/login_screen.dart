@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: const Color.fromARGB(255, 196, 254, 254),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -80,6 +80,7 @@ class _LoginPageState extends State<LoginScreen> {
               CustomTextField(
                 controller: emailController,
                 hintText: 'Username',
+                keybordType: 'email',
                 obscureText: false,
               ),
 
@@ -91,6 +92,7 @@ class _LoginPageState extends State<LoginScreen> {
               CustomTextField(
                 controller: passwordController,
                 hintText: 'Password',
+                keybordType: 'text',
                 obscureText: true,
               ),
 

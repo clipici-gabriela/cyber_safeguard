@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cyber_safeguard/screens/login_screen.dart';
-import 'package:cyber_safeguard/screens/register_screem.dart';
+import 'package:cyber_safeguard/registration_screens/login_screen.dart';
+import 'package:cyber_safeguard/registration_screens/register_screem.dart';
 
 
 class LoginOrRegisterPage extends StatefulWidget{
