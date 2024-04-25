@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AccountInfoScreen extends StatefulWidget {
   const AccountInfoScreen({super.key});
@@ -10,6 +15,8 @@ class AccountInfoScreen extends StatefulWidget {
 }
 
 class _AccountInfoScreenState extends State<AccountInfoScreen> {
+  String? imageUrl;
+
   Future<DocumentSnapshot<Object>?> getUserDocument() async {
     User? user = FirebaseAuth.instance.currentUser;
 
@@ -19,6 +26,37 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
         .get();
 
     return userDocRef;
+  }
+
+  Future<void> updatePhoto() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      File imageFile = File(image.path);
+
+      Reference ref = FirebaseStorage.instance
+          .ref()
+          .child('user_image')
+          .child('/${FirebaseAuth.instance.currentUser!.uid}.jpg');
+
+      UploadTask uploadTask = ref.putFile(imageFile);
+
+      await uploadTask.whenComplete(() async {
+        String downloadURL = await ref.getDownloadURL();
+
+        await FirebaseFirestore.instance
+            .collection('Users')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .update({'image': downloadURL});
+
+        setState(() {
+          imageUrl = downloadURL;
+        });
+      });
+    } else {
+      print('no image selected');
+    }
   }
 
   @override
@@ -36,6 +74,16 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
           if (snapshot.hasData) {
             Map<String, dynamic> userData =
                 snapshot.data!.data() as Map<String, dynamic>;
+            // bool hasImageField = userData.containsKey('image');
+            bool isImageAvailable =
+                userData['image'] != null && userData['image'].isNotEmpty;
+            ImageProvider<Object> imageProvider;
+            if (isImageAvailable) {
+              imageProvider = NetworkImage(userData['image']);
+            } else {
+              // Use default image from assets
+              imageProvider = const AssetImage('assests/images/user_image.png');
+            }
             return Scaffold(
               appBar: AppBar(
                 title: const Text('Account'),
@@ -52,9 +100,20 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 20,
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: imageProvider,
                       ),
+                      TextButton(
+                        onPressed: () async {
+                          await updatePhoto();
+                        },
+                        child: const Text('Update Photo'),
+                      ),
+                      if (!isImageAvailable)
+                        const SizedBox(
+                          height: 20,
+                        ),
                       Text(
                         'First Name: ${userData['firstName']}',
                         style: const TextStyle(fontSize: 16),
@@ -72,6 +131,14 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+                      if (userData['userType'] == 'child')
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const GenerateQRCode()));
+                          },
+                          child: const Text('Generate QR Code'),
+                        ),
                       ElevatedButton(
                         onPressed: () {
                           FirebaseAuth.instance.signOut();

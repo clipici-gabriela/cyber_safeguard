@@ -41,6 +41,8 @@ dependencies:
   cloud_firestore: ^4.17.0
   qr_flutter: ^4.1.0
   qr_code_scanner: ^1.0.1
+  image_picker: ^1.1.0
+  firebase_storage: ^11.7.3
 
 dev_dependencies:
   flutter_test:
@@ -65,9 +67,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - assests/images/apple-logo.png
-  #   - assests/images/google-logo.png
+  assets:
+    - assests/images/user_image.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
