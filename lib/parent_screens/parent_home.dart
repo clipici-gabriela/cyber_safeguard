@@ -1,5 +1,6 @@
 import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
 import 'package:cyber_safeguard/qr_code/qr_code_scaner.dart';
+import 'package:cyber_safeguard/registration_screens/acount_info.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -47,16 +48,7 @@ class _ParentHomeScreenState extends State<ParentHomeScreen> {
         const Scaffold(),
         const ScanQRCode(),
         const GenerateQRCode(),
-        Scaffold(
-          body: Center(
-            child: IconButton(
-              icon: const Icon(Icons.output),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-            ),
-          ),
-        ),
+        const AccountInfoScreen(),
       ][currentPageIndex],
     );
   }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
+import 'package:cyber_safeguard/qr_code/qr_code_scaner.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -139,6 +140,13 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                           },
                           child: const Text('Generate QR Code'),
                         ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ScanQRCode()));
+                        },
+                        child: const Text('Scan QR Code'),
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
