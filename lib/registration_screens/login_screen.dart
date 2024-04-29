@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color.fromARGB(255, 196, 254, 254),
+      // backgroundColor: const Color.fromARGB(255, 196, 254, 254),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
