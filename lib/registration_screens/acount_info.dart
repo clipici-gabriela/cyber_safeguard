@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
+import 'package:cyber_safeguard/qr_code/qr_code_scaner.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,6 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
         });
       });
     } else {
-      print('no image selected');
     }
   }
 
@@ -129,7 +129,7 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 5,
                       ),
                       if (userData['userType'] == 'child')
                         TextButton(
@@ -138,6 +138,15 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                                 builder: (context) => const GenerateQRCode()));
                           },
                           child: const Text('Generate QR Code'),
+                        ),
+                      if (userData['userType'] == 'parent')
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ScanQRCode()));
+                          },
+                          child: const Text(
+                              'Scan QR Code to connect to the child\'s device'),
                         ),
                       ElevatedButton(
                         onPressed: () {
