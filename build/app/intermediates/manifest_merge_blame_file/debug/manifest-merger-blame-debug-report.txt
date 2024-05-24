@@ -5,7 +5,7 @@
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="19"
+8        android:minSdkVersion="20"
 9        android:targetSdkVersion="33" />
 10    <!--
 11         The INTERNET permission is required for development. Specifically,
@@ -15,205 +15,449 @@
 15    <uses-permission android:name="android.permission.INTERNET" />
 15-->C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\android\app\src\debug\AndroidManifest.xml:6:5-66
 15-->C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\android\app\src\debug\AndroidManifest.xml:6:22-64
-16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:26:5-79
-16-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:26:22-76
-17    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-17-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Gabriela\.gradle\caches\transforms-3\428aba4503beb37af6d44c42d85c9c0f\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
-17-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Gabriela\.gradle\caches\transforms-3\428aba4503beb37af6d44c42d85c9c0f\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
-18
-19    <application
-20        android:name="android.app.Application"
-21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.6.0] C:\Users\Gabriela\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-22        android:debuggable="true"
-23        android:icon="@mipmap/ic_launcher"
-24        android:label="cyber_safeguard" >
-25        <activity
-26            android:name="com.example.cyber_safeguard.MainActivity"
-27            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-28            android:exported="true"
-29            android:hardwareAccelerated="true"
-30            android:launchMode="singleTop"
-31            android:theme="@style/LaunchTheme"
-32            android:windowSoftInputMode="adjustResize" >
-33
-34            <!--
-35                 Specifies an Android theme to apply to this Activity as soon as
-36                 the Android process has started. This theme is visible to the user
-37                 while the Flutter UI initializes. After that, this theme continues
-38                 to determine the Window background behind the Flutter UI.
-39            -->
-40            <meta-data
-41                android:name="io.flutter.embedding.android.NormalTheme"
-42                android:resource="@style/NormalTheme" />
-43
-44            <intent-filter>
-45                <action android:name="android.intent.action.MAIN" />
-46
-47                <category android:name="android.intent.category.LAUNCHER" />
-48            </intent-filter>
-49        </activity>
-50        <!--
-51             Don't delete the meta-data below.
-52             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-53        -->
-54        <meta-data
-55            android:name="flutterEmbedding"
-56            android:value="2" />
-57
-58        <service
-58-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-59            android:name="com.google.firebase.components.ComponentDiscoveryService"
-59-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
-60            android:directBootAware="true"
-60-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
-61            android:exported="false" >
-61-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:68:13-37
-62            <meta-data
-62-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-63                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-63-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
-64                android:value="com.google.firebase.components.ComponentRegistrar" />
-64-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
-65            <meta-data
-65-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-66                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-66-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
-67                android:value="com.google.firebase.components.ComponentRegistrar" />
-67-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
-68            <meta-data
-68-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:69:13-71:85
-69                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-69-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:70:17-109
-70                android:value="com.google.firebase.components.ComponentRegistrar" />
-70-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:71:17-82
-71            <meta-data
-71-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
-72                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-72-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
-73                android:value="com.google.firebase.components.ComponentRegistrar" />
-73-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
-74            <meta-data
-74-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
-75                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-75-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
-76                android:value="com.google.firebase.components.ComponentRegistrar" />
-76-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
-77        </service>
-78
-79        <activity
-79-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:29:9-46:20
-80            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-80-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:30:13-80
-81            android:excludeFromRecents="true"
-81-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:31:13-46
-82            android:exported="true"
-82-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:32:13-36
-83            android:launchMode="singleTask"
-83-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:33:13-44
-84            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-84-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:34:13-72
-85            <intent-filter>
-85-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:35:13-45:29
-86                <action android:name="android.intent.action.VIEW" />
-86-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:17-69
-86-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:25-66
-87
-88                <category android:name="android.intent.category.DEFAULT" />
-88-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:17-76
-88-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:27-73
-89                <category android:name="android.intent.category.BROWSABLE" />
-89-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:17-78
-89-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:27-75
-90
-91                <data
-91-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:41:17-44:51
-92                    android:host="firebase.auth"
-92-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:42:21-49
-93                    android:path="/"
-93-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:43:21-37
-94                    android:scheme="genericidp" />
-94-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:44:21-48
-95            </intent-filter>
-96        </activity>
-97        <activity
-97-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:47:9-64:20
-98            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-98-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:48:13-79
-99            android:excludeFromRecents="true"
-99-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:49:13-46
-100            android:exported="true"
-100-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:50:13-36
-101            android:launchMode="singleTask"
-101-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:51:13-44
-102            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-102-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:52:13-72
-103            <intent-filter>
-103-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:53:13-63:29
-104                <action android:name="android.intent.action.VIEW" />
-104-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:17-69
-104-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:25-66
-105
-106                <category android:name="android.intent.category.DEFAULT" />
-106-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:17-76
-106-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:27-73
-107                <category android:name="android.intent.category.BROWSABLE" />
-107-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:17-78
-107-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:27-75
-108
-109                <data
-109-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:41:17-44:51
-110                    android:host="firebase.auth"
-110-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:42:21-49
-111                    android:path="/"
-111-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:43:21-37
-112                    android:scheme="recaptcha" />
-112-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:44:21-48
-113            </intent-filter>
-114        </activity>
-115
-116        <provider
-116-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
-117            android:name="com.google.firebase.provider.FirebaseInitProvider"
-117-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
-118            android:authorities="com.example.cyber_safeguard.firebaseinitprovider"
-118-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
-119            android:directBootAware="true"
-119-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
-120            android:exported="false"
-120-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
-121            android:initOrder="100" />
-121-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
-122
-123        <uses-library
-123-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-124            android:name="androidx.window.extensions"
-124-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-125            android:required="false" />
-125-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-126        <uses-library
-126-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-127            android:name="androidx.window.sidecar"
-127-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-128            android:required="false" />
-128-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-129
-130        <activity
-130-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Gabriela\.gradle\caches\transforms-3\da836af96063471d9ecc25668dfd26c9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-131            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-131-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Gabriela\.gradle\caches\transforms-3\da836af96063471d9ecc25668dfd26c9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\android\app\src\debug\AndroidManifest.xml:7:5-65
+16-->C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\android\app\src\debug\AndroidManifest.xml:7:22-62
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:26:5-79
+17-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:26:22-76
+18    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+18-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Gabriela\.gradle\caches\transforms-3\428aba4503beb37af6d44c42d85c9c0f\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
+18-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Gabriela\.gradle\caches\transforms-3\428aba4503beb37af6d44c42d85c9c0f\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
+19
+20    <permission
+20-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+21        android:name="com.example.cyber_safeguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+21-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+22        android:protectionLevel="signature" />
+22-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+23
+24    <uses-permission android:name="com.example.cyber_safeguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+24-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+24-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+25    <uses-feature
+25-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+26        android:name="android.hardware.camera"
+26-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
+27        android:required="false" />
+27-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
+28    <uses-feature
+28-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+29        android:name="android.hardware.camera.front"
+29-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+30        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+30-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+31    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+32    <uses-feature
+32-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+33        android:name="android.hardware.camera.autofocus"
+33-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
+34        android:required="false" />
+34-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
+35    <uses-feature
+35-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+36        android:name="android.hardware.camera.flash"
+36-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+37        android:required="false" />
+37-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+38    <uses-feature
+38-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+39        android:name="android.hardware.screen.landscape"
+39-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+40        android:required="false" />
+40-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+41    <uses-feature
+41-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+42        android:name="android.hardware.wifi"
+42-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+43        android:required="false" />
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+44
+45    <application
+46        android:name="io.flutter.app.FlutterMultiDexApplication"
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.10.1] C:\Users\Gabriela\.gradle\caches\transforms-3\0235b77ff31bafac24f24ba4755d72b8\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+48        android:debuggable="true"
+49        android:icon="@mipmap/ic_launcher"
+50        android:label="cyber_safeguard" >
+51        <activity
+52            android:name="com.example.cyber_safeguard.MainActivity"
+53            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+54            android:exported="true"
+55            android:hardwareAccelerated="true"
+56            android:launchMode="singleTop"
+57            android:theme="@style/LaunchTheme"
+58            android:windowSoftInputMode="adjustResize" >
+59
+60            <!--
+61                 Specifies an Android theme to apply to this Activity as soon as
+62                 the Android process has started. This theme is visible to the user
+63                 while the Flutter UI initializes. After that, this theme continues
+64                 to determine the Window background behind the Flutter UI.
+65            -->
+66            <meta-data
+67                android:name="io.flutter.embedding.android.NormalTheme"
+68                android:resource="@style/NormalTheme" />
+69
+70            <intent-filter>
+71                <action android:name="android.intent.action.MAIN" />
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+74            </intent-filter>
+75        </activity>
+76        <!--
+77             Don't delete the meta-data below.
+78             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+79        -->
+80        <meta-data
+81            android:name="flutterEmbedding"
+82            android:value="2" />
+83
+84        <service
+84-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+85            android:name="com.google.firebase.components.ComponentDiscoveryService"
+85-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
+86            android:directBootAware="true"
+86-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
+87            android:exported="false" >
+87-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:68:13-37
+88            <meta-data
+88-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+89                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+89-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[:firebase_auth] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+91            <meta-data
+91-->[:firebase_storage] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+92                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+92-->[:firebase_storage] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-126
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[:firebase_storage] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+94            <meta-data
+94-->[:cloud_firestore] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+95                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+95-->[:cloud_firestore] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+96                android:value="com.google.firebase.components.ComponentRegistrar" />
+96-->[:cloud_firestore] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+97            <meta-data
+97-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+98                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+98-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+99                android:value="com.google.firebase.components.ComponentRegistrar" />
+99-->[:firebase_core] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+100            <meta-data
+100-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:69:13-71:85
+101                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+101-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:70:17-109
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:71:17-82
+103            <meta-data
+103-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:17:13-19:85
+104                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+104-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:18:17-122
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:19:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:20:13-22:85
+107                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+107-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:21:17-111
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\Gabriela\.gradle\caches\transforms-3\89693237b917cc9303b682ca93efd213\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:22:17-82
+109            <meta-data
+109-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:30:13-32:85
+110                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+110-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:31:17-118
+111                android:value="com.google.firebase.components.ComponentRegistrar" />
+111-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:32:17-82
+112            <meta-data
+112-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:33:13-35:85
+113                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+113-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:34:17-107
+114                android:value="com.google.firebase.components.ComponentRegistrar" />
+114-->[com.google.firebase:firebase-storage:20.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\af3e20c7205cfd67c95b29a5ce592b1a\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:35:17-82
+115            <meta-data
+115-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:25:13-27:85
+116                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+116-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:26:17-120
+117                android:value="com.google.firebase.components.ComponentRegistrar" />
+117-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:27:17-82
+118            <meta-data
+118-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:28:13-30:85
+119                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+119-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:29:17-117
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-appcheck:17.1.2] C:\Users\Gabriela\.gradle\caches\transforms-3\c14e229bae0c10ea3daf18cb6d540d70\transformed\jetified-firebase-appcheck-17.1.2\AndroidManifest.xml:30:17-82
+121            <meta-data
+121-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
+122                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+122-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\6667494682bb1874e0af9dd2ce3e8dfb\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
+124            <meta-data
+124-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
+125                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+125-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
+127        </service>
+128
+129        <provider
+129-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:9-19:20
+130            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+130-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-82
+131            android:authorities="com.example.cyber_safeguard.flutter.image_provider"
+131-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-74
 132            android:exported="false"
-132-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Gabriela\.gradle\caches\transforms-3\da836af96063471d9ecc25668dfd26c9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-133            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-133-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Gabriela\.gradle\caches\transforms-3\da836af96063471d9ecc25668dfd26c9\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-134
-135        <meta-data
-135-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
-136            android:name="com.google.android.gms.version"
-136-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
-137            android:value="@integer/google_play_services_version" />
-137-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
-138    </application>
-139
-140</manifest>
+132-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-37
+133            android:grantUriPermissions="true" >
+133-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-47
+134            <meta-data
+134-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-18:75
+135                android:name="android.support.FILE_PROVIDER_PATHS"
+135-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
+136                android:resource="@xml/flutter_image_picker_file_paths" />
+136-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:18:17-72
+137        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+138        <service
+138-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:9-33:19
+139            android:name="com.google.android.gms.metadata.ModuleDependencies"
+139-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-78
+140            android:enabled="false"
+140-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-36
+141            android:exported="false" >
+141-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
+142            <intent-filter>
+142-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-28:29
+143                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+143-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:17-94
+143-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:25-91
+144            </intent-filter>
+145
+146            <meta-data
+146-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-32:36
+147                android:name="photopicker_activity:0:required"
+147-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:31:17-63
+148                android:value="" />
+148-->[:image_picker_android] C:\Users\Gabriela\OneDrive\Desktop\gitProject\cyber_safeguard\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:32:17-33
+149        </service>
+150
+151        <activity
+151-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:29:9-46:20
+152            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+152-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:30:13-80
+153            android:excludeFromRecents="true"
+153-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:31:13-46
+154            android:exported="true"
+154-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:32:13-36
+155            android:launchMode="singleTask"
+155-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:33:13-44
+156            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+156-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:34:13-72
+157            <intent-filter>
+157-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:35:13-45:29
+158                <action android:name="android.intent.action.VIEW" />
+158-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:17-69
+158-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:25-66
+159
+160                <category android:name="android.intent.category.DEFAULT" />
+160-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:17-76
+160-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:27-73
+161                <category android:name="android.intent.category.BROWSABLE" />
+161-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:17-78
+161-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:27-75
+162
+163                <data
+163-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:41:17-44:51
+164                    android:host="firebase.auth"
+164-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:42:21-49
+165                    android:path="/"
+165-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:43:21-37
+166                    android:scheme="genericidp" />
+166-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:44:21-48
+167            </intent-filter>
+168        </activity>
+169        <activity
+169-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:47:9-64:20
+170            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+170-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:48:13-79
+171            android:excludeFromRecents="true"
+171-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:49:13-46
+172            android:exported="true"
+172-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:50:13-36
+173            android:launchMode="singleTask"
+173-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:51:13-44
+174            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+174-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:52:13-72
+175            <intent-filter>
+175-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:53:13-63:29
+176                <action android:name="android.intent.action.VIEW" />
+176-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:17-69
+176-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:36:25-66
+177
+178                <category android:name="android.intent.category.DEFAULT" />
+178-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:17-76
+178-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:38:27-73
+179                <category android:name="android.intent.category.BROWSABLE" />
+179-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:17-78
+179-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:39:27-75
+180
+181                <data
+181-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:41:17-44:51
+182                    android:host="firebase.auth"
+182-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:42:21-49
+183                    android:path="/"
+183-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:43:21-37
+184                    android:scheme="recaptcha" />
+184-->[com.google.firebase:firebase-auth:22.3.1] C:\Users\Gabriela\.gradle\caches\transforms-3\86feba03724c3c01cf5c2c40fcdf43d5\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:44:21-48
+185            </intent-filter>
+186        </activity>
+187        <activity
+187-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:23:9-27:75
+188            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+188-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:24:13-93
+189            android:excludeFromRecents="true"
+189-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:25:13-46
+190            android:exported="false"
+190-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:26:13-37
+191            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+191-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:27:13-72
+192        <!--
+193            Service handling Google Sign-In user revocation. For apps that do not integrate with
+194            Google Sign-In, this service will never be started.
+195        -->
+196        <service
+196-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:33:9-37:51
+197            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+197-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:34:13-89
+198            android:exported="true"
+198-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:35:13-36
+199            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+199-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:36:13-107
+200            android:visibleToInstantApps="true" />
+200-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\fb3f4cb90f06e9d3d893f1b86c6d8dd7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:37:13-48
+201
+202        <provider
+202-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
+203            android:name="com.google.firebase.provider.FirebaseInitProvider"
+203-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
+204            android:authorities="com.example.cyber_safeguard.firebaseinitprovider"
+204-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
+205            android:directBootAware="true"
+205-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
+206            android:exported="false"
+206-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
+207            android:initOrder="100" />
+207-->[com.google.firebase:firebase-common:20.4.3] C:\Users\Gabriela\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
+208
+209        <activity
+209-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Gabriela\.gradle\caches\transforms-3\028a675d0bc5463fd0b16375a1e80ebd\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+210            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+210-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Gabriela\.gradle\caches\transforms-3\028a675d0bc5463fd0b16375a1e80ebd\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+211            android:exported="false"
+211-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Gabriela\.gradle\caches\transforms-3\028a675d0bc5463fd0b16375a1e80ebd\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+212            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+212-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Gabriela\.gradle\caches\transforms-3\028a675d0bc5463fd0b16375a1e80ebd\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+213
+214        <meta-data
+214-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+215            android:name="com.google.android.gms.version"
+215-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+216            android:value="@integer/google_play_services_version" />
+216-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+217
+218        <provider
+218-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+219            android:name="androidx.startup.InitializationProvider"
+219-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+220            android:authorities="com.example.cyber_safeguard.androidx-startup"
+220-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+221            android:exported="false" >
+221-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+222            <meta-data
+222-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+223                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+223-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+224                android:value="androidx.startup" />
+224-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2730357b1d3ac54850881c8464a8aedb\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+225            <meta-data
+225-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Gabriela\.gradle\caches\transforms-3\6e295704a2b30a70d5c97fe20a323521\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+226                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+226-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Gabriela\.gradle\caches\transforms-3\6e295704a2b30a70d5c97fe20a323521\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+227                android:value="androidx.startup" />
+227-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Gabriela\.gradle\caches\transforms-3\6e295704a2b30a70d5c97fe20a323521\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+228            <meta-data
+228-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+229                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+229-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+230                android:value="androidx.startup" />
+230-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+231        </provider>
+232
+233        <uses-library
+233-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+234            android:name="androidx.window.extensions"
+234-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+235            android:required="false" />
+235-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+236        <uses-library
+236-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+237            android:name="androidx.window.sidecar"
+237-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+238            android:required="false" />
+238-->[androidx.window:window:1.0.0-beta04] C:\Users\Gabriela\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+239
+240        <receiver
+240-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+241            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+241-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+242            android:directBootAware="false"
+242-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+243            android:enabled="true"
+243-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+244            android:exported="true"
+244-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+245            android:permission="android.permission.DUMP" >
+245-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+246            <intent-filter>
+246-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+247                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+247-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+247-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+248            </intent-filter>
+249            <intent-filter>
+249-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+250                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+250-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+250-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+251            </intent-filter>
+252            <intent-filter>
+252-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+253                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+253-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+253-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+254            </intent-filter>
+255            <intent-filter>
+255-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+256                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+256-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+256-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\d8b20124984237c0e54cf00d7c7f47a6\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+257            </intent-filter>
+258        </receiver>
+259
+260        <activity
+260-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+261            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+261-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+262            android:clearTaskOnLaunch="true"
+262-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+263            android:screenOrientation="sensorLandscape"
+263-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+264            android:stateNotNeeded="true"
+264-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+265            android:theme="@style/zxing_CaptureTheme"
+265-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+266            android:windowSoftInputMode="stateAlwaysHidden" />
+266-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Gabriela\.gradle\caches\transforms-3\2623bdf024d7c31c597d9907bfd75c21\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+267    </application>
+268
+269</manifest>

@@ -1,4 +1,4 @@
-import 'package:cyber_safeguard/qr_code/qr_code_generater.dart';
+import 'package:cyber_safeguard/child_screens/child_tasks_list.dart';
 import 'package:cyber_safeguard/registration_screens/acount_info.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
         },
       ),
       body: <Widget>[
-        const GenerateQRCode(),
+        const TasksList(),
         const AccountInfoScreen()
       ][currentPageIndex],
     );

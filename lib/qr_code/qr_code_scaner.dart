@@ -32,29 +32,20 @@ class _ScanQRCodeState extends State<ScanQRCode> {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) async {
       controller.pauseCamera();
-      final parts = scanData.code!.split(';');
-      final childUid = parts[0];
-      final childName = parts[1];
+      final childUid = scanData.code!;
 
       final String parentUid = FirebaseAuth.instance.currentUser!.uid;
 
       final batch = FirebaseFirestore.instance.batch();
-      final childDocRef =
-          FirebaseFirestore.instance.collection('Users').doc(childUid);
 
-      batch.update(childDocRef, {
-        'parentUid': parentUid,
-      });
-
-      final parentDocRef =
-          FirebaseFirestore.instance.collection('Users').doc(parentUid);
+      final relationshipDocRef =
+          FirebaseFirestore.instance.collection('Relationships').doc();
 
       batch.set(
-          parentDocRef,
+          relationshipDocRef,
           {
-            'Children': FieldValue.arrayUnion([
-              {'uid': childUid, 'name': childName}
-            ]),
+            'parentId': parentUid,
+            'childId': childUid,
           },
           SetOptions(merge: true));
 
