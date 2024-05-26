@@ -1,6 +1,7 @@
 # This is a generated file; do not edit or check into version control.
 cloud_firestore=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\cloud_firestore-4.17.0\\
 cloud_firestore_web=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\cloud_firestore_web-3.12.0\\
+device_apps=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\device_apps-2.2.0\\
 file_selector_linux=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\file_selector_linux-0.9.2+1\\
 file_selector_macos=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\file_selector_macos-0.9.3+3\\
 file_selector_windows=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\file_selector_windows-0.9.3+1\\
@@ -23,3 +24,4 @@ image_picker_linux=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.
 image_picker_macos=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\image_picker_macos-0.2.1+1\\
 image_picker_windows=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\image_picker_windows-0.2.1+1\\
 qr_code_scanner=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\qr_code_scanner-1.0.1\\
+usage_stats=C:\\Users\\Gabriela\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\usage_stats-1.2.0\\
