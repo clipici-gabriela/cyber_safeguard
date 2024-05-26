@@ -39,8 +39,6 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
       includeSystemApps: true,
       onlyAppsWithLaunchIntent: true,
     );
-    print('FUNCTION 1 ACTIVATED');
-
     DateTime endDate = DateTime.now();
     DateTime startDate = endDate.subtract(const Duration(days: 1));
 
@@ -90,7 +88,6 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
   }
 
   void addAppInfo(String childId, AppInfo appInfo) {
-    print('FUNCTION ACTIVATED');
     FirebaseFirestore.instance
         .collection('Apps')
         .doc(childId)
