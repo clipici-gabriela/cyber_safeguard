@@ -17,7 +17,7 @@ class AppInfo {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'icon': packageName,
+      'packageName': packageName,
       'screenTime': screenTime,
       'lastTimeUsed': lastTimeUsed.toIso8601String(),
       'timeAllocation': timeAllocation,

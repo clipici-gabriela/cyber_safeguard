@@ -446,13 +446,19 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "workmanager",
+      "rootUri": "file:///C:/Users/Gabriela/AppData/Local/Pub/Cache/hosted/pub.dev/workmanager-0.5.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "cyber_safeguard",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-05-24T20:52:25.795106Z",
+  "generated": "2024-05-29T19:08:34.297057Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

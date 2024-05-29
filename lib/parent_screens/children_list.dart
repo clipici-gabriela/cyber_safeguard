@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cyber_safeguard/parent_screens/child_settings_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ChildrenListScreen extends StatefulWidget {
   const ChildrenListScreen({super.key});
@@ -23,6 +22,7 @@ class _ChildrenListScreenState extends State<ChildrenListScreen> {
         .get();
 
     for (var relDoc in relationshipQuery.docs) {
+      String childId = relDoc['childId'];
       DocumentSnapshot childDoc = await FirebaseFirestore.instance
           .collection('Users')
           .doc(relDoc['childId'])
@@ -30,6 +30,7 @@ class _ChildrenListScreenState extends State<ChildrenListScreen> {
       if (childDoc.exists) {
         Map<String, dynamic> childData =
             childDoc.data() as Map<String, dynamic>;
+            childData['id'] = childId;
         children.add(childData);
       }
     }
@@ -70,7 +71,7 @@ class _ChildrenListScreenState extends State<ChildrenListScreen> {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ChildSettingsScreen(
-                              user: child['firstName'],
+                              user: child,
                             )));
                   },
                   child: Card(
