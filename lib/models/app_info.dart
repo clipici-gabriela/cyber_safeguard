@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 class AppInfo {
   final String name;
   final String packageName;
@@ -19,10 +17,11 @@ class AppInfo {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'icon': packageName,
+      'packageName': packageName,
       'screenTime': screenTime,
       'lastTimeUsed': lastTimeUsed.toIso8601String(),
       'timeAllocation': timeAllocation,
+      'showApp':true,
     };
   }
 }
