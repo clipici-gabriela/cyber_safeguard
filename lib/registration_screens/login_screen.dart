@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:cyber_safeguard/registration_screens/forgot_password.dart';
 import 'package:cyber_safeguard/widgets/custom_button.dart';
 import 'package:cyber_safeguard/widgets/text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -48,7 +49,6 @@ class _LoginPageState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // backgroundColor: const Color.fromARGB(255, 196, 254, 254),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -105,9 +105,17 @@ class _LoginPageState extends State<LoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey.shade700),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ForgotPasswordPage()),
+                        );
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey.shade700),
+                      ),
                     ),
                   ],
                 ),
