@@ -1,8 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-//enum Names { ion, mihai, andrei, adelina }
+import 'package:cyber_safeguard/messages_configuration/notification_sender.dart';
 
 class AddNewTask extends StatefulWidget {
   const AddNewTask({super.key});
@@ -39,7 +40,6 @@ class _AddNewTaskState extends State<AddNewTask> {
     String parentId = FirebaseAuth.instance.currentUser!.uid;
     List<String> childrenNames = [];
 
-    // Query the Relationships collection to get child IDs
     var relationshipQuery = await FirebaseFirestore.instance
         .collection('Relationships')
         .where('parentId', isEqualTo: parentId)
@@ -52,7 +52,6 @@ class _AddNewTaskState extends State<AddNewTask> {
           .doc(childId)
           .get();
       if (childSnapshot.exists) {
-        // Safely add the child's name to the list if the child has a name field
         Map<String, dynamic> childData = childSnapshot.data()!;
         if (childData.containsKey('firstName')) {
           childrenNames.add(childData['firstName'] as String);
@@ -74,10 +73,9 @@ class _AddNewTaskState extends State<AddNewTask> {
             (pickedTime.hour == initialTime.hour &&
                 pickedTime.minute > initialTime.minute))) {
       setState(() {
-        _pickedTime = pickedTime; // Save the picked time in the state
+        _pickedTime = pickedTime;
       });
     } else {
-      // Show an error message if the picked time is in the past
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please pick a future time for today.")),
       );
@@ -104,7 +102,6 @@ class _AddNewTaskState extends State<AddNewTask> {
     final deadlineDateTime = DateTime(
         now.year, now.month, now.day, _pickedTime!.hour, _pickedTime!.minute);
 
-    //Create the task data
     final taskData = {
       'parentID': parentUser!.uid,
       'description': _enteredTask,
@@ -114,7 +111,10 @@ class _AddNewTaskState extends State<AddNewTask> {
     };
 
     try {
-      FirebaseFirestore.instance.collection('Tasks').add(taskData);
+      await FirebaseFirestore.instance.collection('Tasks').add(taskData);
+      
+      // Send notification to the assigned child
+      await sendNotificationToChild(_assignedChild!, taskData['description'] as String);
 
       Navigator.pop(context, true);
     } on FirebaseAuthException catch (error) {
@@ -128,24 +128,59 @@ class _AddNewTaskState extends State<AddNewTask> {
     }
   }
 
+  Future<void> sendNotificationToChild(String childName, String taskDescription) async {
+    final userQuerySnapshot = await FirebaseFirestore.instance
+        .collection('Users')
+        .where('firstName', isEqualTo: childName)
+        .get();
+
+    if (userQuerySnapshot.docs.isNotEmpty) {
+      final userDoc = userQuerySnapshot.docs[0];
+      final fcmToken = userDoc.data()['fcmToken'];
+
+      if (fcmToken != null) {
+        final notificationSender = NotificationSender();
+        await notificationSender.sendNotification(
+          fcmToken,
+          context,
+          '',
+          'New Task Assigned',
+          'You have a new task: $taskDescription',
+        );
+      } else {
+        print("No FCM token for user.");
+      }
+    } else {
+      print("No user found with the given first name.");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
 
-    return SizedBox(
-      height: double.infinity,
-      child: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add New Task'),
+      ),
+      body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(16, 16, 16, keyboardSpace + 16),
           child: Form(
             key: _formKey,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  decoration: const InputDecoration(labelText: 'Task'),
+                  decoration: InputDecoration(
+                    labelText: 'Task',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                   autocorrect: false,
                   validator: (value) {
-                    if (value == null) {
+                    if (value == null || value.isEmpty) {
                       return 'Please enter the task';
                     }
                     return null;
@@ -154,76 +189,87 @@ class _AddNewTaskState extends State<AddNewTask> {
                     _enteredTask = value!;
                   },
                 ),
-                const SizedBox(
-                  height: 10,
+                const SizedBox(height: 20),
+                FutureBuilder<List<String>>(
+                  future: getChildrenNames(FirebaseAuth.instance.currentUser!.uid),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    }
+                    if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    }
+                    if (snapshot.hasData) {
+                      var childrenNames = snapshot.data!;
+
+                      if (_assignedChild == null ||
+                          !childrenNames.contains(_assignedChild)) {
+                        _assignedChild = childrenNames.isNotEmpty
+                            ? childrenNames.first
+                            : null;
+                      }
+
+                      return DropdownButtonFormField<String>(
+                        value: _assignedChild,
+                        decoration: InputDecoration(
+                          labelText: 'Assign to',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        items: childrenNames
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _assignedChild = value!;
+                          });
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please assign the task';
+                          }
+                          return null;
+                        },
+                      );
+                    } else {
+                      return const Text('No children available');
+                    }
+                  },
                 ),
+                const SizedBox(height: 20),
                 Row(
                   children: [
-                    FutureBuilder<List<String>>(
-                      future: getChildrenNames(
-                          FirebaseAuth.instance.currentUser!.uid),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const CircularProgressIndicator();
-                        }
-                        if (snapshot.hasError) {
-                          return Text('Error: ${snapshot.error}');
-                        }
-                        if (snapshot.hasData) {
-                          var childrenNames = snapshot.data!;
-
-                          if (_assignedChild == null ||
-                              !childrenNames.contains(_assignedChild)) {
-                            _assignedChild = childrenNames.isNotEmpty
-                                ? childrenNames.first
-                                : null;
-                          }
-
-                          return DropdownButton<String>(
-                            value: _assignedChild,
-                            items: childrenNames
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _assignedChild = value!;
-                              });
-                            },
-                          );
-                        } else {
-                          return const Text('No children available');
-                        }
-                      },
+                    Text(
+                      _pickedTime == null
+                          ? 'No time selected'
+                          : 'Picked Time: ${_pickedTime!.format(context)}',
                     ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    IconButton(
+                    const Spacer(),
+                    ElevatedButton(
                       onPressed: () => _selectTime(context),
-                      icon: const Icon(Icons.timer_sharp),
+                      child: const Text('Pick Time'),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                const SizedBox(height: 20),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Spacer(),
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
                       child: const Text('Cancel'),
                     ),
+                    const SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: _submit,
-                      child: const Text('Add'),
+                      child: const Text('Add Task'),
                     ),
                   ],
                 ),

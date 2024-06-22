@@ -1,9 +1,14 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cyber_safeguard/registration_screens/forgot_password.dart';
 import 'package:cyber_safeguard/widgets/custom_button.dart';
 import 'package:cyber_safeguard/widgets/text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:usage_stats/usage_stats.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function()? onTap;
@@ -15,32 +20,65 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginPageState extends State<LoginScreen> {
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
-  //sign user in
+  Future<void> saveFCMToken(String userId) async {
+    String? token = await FirebaseMessaging.instance.getToken();
+    if (token != null) {
+      await FirebaseFirestore.instance.collection('Users').doc(userId).update({
+        'fcmToken': token,
+      });
+    }
+  }
+
   void signUserIn() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-    } on FirebaseAuthException catch (error) {
-      if (error.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).clearSnackBars();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(error.message ?? 'User not found'),
-          ),
-        );
-      } else if (error.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).clearSnackBars();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(error.message ?? 'Wrong password'),
-          ),
-        );
+
+      saveFCMToken(FirebaseAuth.instance.currentUser!.uid);
+      final DocumentSnapshot<Map<String, dynamic>> userDoc =
+          await FirebaseFirestore.instance
+              .collection('Users')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .get();
+
+      if (userDoc.exists) {
+        final userType = userDoc.data()!['userType'];
+
+        if (userType == 'child') {
+          UsageStats.grantUsagePermission();
+          FlutterBackgroundService().invoke('setAsBackground');
+        }
       }
+    } on FirebaseAuthException catch (error) {
+      String errorMessage = 'An unknown error occurred';
+      switch (error.code) {
+        case 'user-not-found':
+          errorMessage = 'No user found for that email.';
+          break;
+        case 'wrong-password':
+          errorMessage = 'Wrong password provided for that user.';
+          break;
+        case 'invalid-email':
+          errorMessage = 'The email address is not valid.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'The user account has been disabled.';
+          break;
+        default:
+          errorMessage = error.message ?? 'An unknown error occurred';
+      }
+
+      ScaffoldMessenger.of(context).clearSnackBars();
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+        ),
+      );
     }
   }
 
@@ -48,7 +86,6 @@ class _LoginPageState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // backgroundColor: const Color.fromARGB(255, 196, 254, 254),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -105,9 +142,18 @@ class _LoginPageState extends State<LoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey.shade700),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ForgotPasswordPage()),
+                        );
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey.shade700),
+                      ),
                     ),
                   ],
                 ),
