@@ -1,8 +1,9 @@
-import 'package:cyber_safeguard/background/app_usage_service.dart';
+import 'package:cyber_safeguard/background/background_service.dart';
 import 'package:cyber_safeguard/registration_screens/auth.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'firebase_options.dart';
 // Import the usage stats fetcher functions
 
@@ -11,23 +12,19 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+ // await FirebaseMessagesService().initialize();
 
-  // Initialize Workmanager
-  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
-  Workmanager().registerPeriodicTask(
-    "1",
-    "fetchUsageStats",
-    frequency: const Duration(minutes: 15), // Minimum interval is 15 min
-  );
+  //Initialize Flutter Background
+  WidgetsFlutterBinding.ensureInitialized();
+  await Permission.notification.isDenied.then((value) {
+    if (value) {
+      Permission.notification.request();
+    }
+  });
+
+  await initializeService();
 
   runApp(const MyApp());
-}
-
-void callbackDispatcher() {
-  Workmanager().executeTask((task, inputData) async {
-    await fetchAndLogAppUsage(); // Call the function to fetch and log app usage
-    return Future.value(true);
-  });
 }
 
 class MyApp extends StatelessWidget {

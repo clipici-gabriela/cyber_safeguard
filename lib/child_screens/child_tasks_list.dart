@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cyber_safeguard/models/task.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cyber_safeguard/models/task.dart';
+import 'package:cyber_safeguard/messages_configuration/notification_sender.dart';
 
 class TasksList extends StatefulWidget {
   const TasksList({super.key});
@@ -19,7 +22,6 @@ class _TasksListState extends State<TasksList> {
     _fetchTasks();
   }
 
-// Add a parameter to _fetchTasks to accept the child's name or ID
   Future<void> _fetchTasks() async {
     String childUser = FirebaseAuth.instance.currentUser!.uid;
     String name = '';
@@ -32,8 +34,7 @@ class _TasksListState extends State<TasksList> {
 
     QuerySnapshot tasksSnapshot = await FirebaseFirestore.instance
         .collection('Tasks')
-        .where('assignedTo',
-            isEqualTo: name) // Use Firestore query to filter by assignedTo
+        .where('assignedTo', isEqualTo: name)
         .get();
 
     List<Task> fetchedTasks = tasksSnapshot.docs.map((doc) {
@@ -48,14 +49,12 @@ class _TasksListState extends State<TasksList> {
 
   void _toggleTaskCompletion(Task task) async {
     try {
-      // Assuming task.id contains the document ID from Firestore
       await FirebaseFirestore.instance
           .collection('Tasks')
           .doc(task.id)
           .update({'completed': !task.completed});
 
       setState(() {
-        // Find the task in the list and update its completed status
         final taskIndex = _tasks.indexWhere((t) => t.id == task.id);
         if (taskIndex != -1) {
           _tasks[taskIndex] = Task(
@@ -66,12 +65,43 @@ class _TasksListState extends State<TasksList> {
             deadline: _tasks[taskIndex].deadline,
             completed: !_tasks[taskIndex].completed,
           );
+
+          if (_tasks[taskIndex].completed) {
+            sendNotificationToParent(_tasks[taskIndex]);
+          }
         }
       });
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to update task: $error')),
       );
+    }
+  }
+
+  Future<void> sendNotificationToParent(Task task) async {
+    final parentUserDoc = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(task.parentId)
+        .get();
+
+    if (parentUserDoc.exists) {
+      final parentData = parentUserDoc.data()!;
+      final fcmToken = parentData['fcmToken'];
+
+      if (fcmToken != null) {
+        final notificationSender = NotificationSender();
+        await notificationSender.sendNotification(
+          fcmToken,
+          context,
+          '',
+          'Task Completed',
+          'Your child has completed the task: ${task.description}',
+        );
+      } else {
+        print("No FCM token for parent.");
+      }
+    } else {
+      print("No parent found with the given ID.");
     }
   }
 

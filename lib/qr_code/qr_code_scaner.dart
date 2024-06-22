@@ -50,9 +50,36 @@ class _ScanQRCodeState extends State<ScanQRCode> {
           SetOptions(merge: true));
 
       await batch.commit().then((value) {
-        Navigator.pop(context);
+        _showConfirmationDialog();
+      }).catchError((error) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to establish connection: $error'),
+          ),
+        );
       });
     });
+  }
+
+  void _showConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Success'),
+          content: const Text('Connection established successfully!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.pop(context); // Close the ScanQRCode screen
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override

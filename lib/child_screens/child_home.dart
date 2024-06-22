@@ -5,7 +5,7 @@ import 'package:cyber_safeguard/registration_screens/acount_info.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:usage_stats/usage_stats.dart';
+
 
 class ChildHomeScreen extends StatefulWidget {
   const ChildHomeScreen({super.key});
@@ -21,66 +21,20 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
   @override
   void initState() {
     super.initState();
-    collectAndStoreApps(childId);
+    collectAndStoreApps;
   }
 
   void collectAndStoreApps(String childId) async {
-    //await UsageStats.grantUsagePermission();
-    // bool permissionGranted = UsageStats.checkUsagePermission() as bool;
-    // print('Permission Granted: $permissionGranted');
-
-    // if (!permissionGranted) {
-    //   print('Permission not granted');
-    //   return;
-    // }
-
     List<Application> apps = await DeviceApps.getInstalledApplications(
       includeAppIcons: true,
       includeSystemApps: true,
       onlyAppsWithLaunchIntent: true,
     );
-    DateTime endDate = DateTime.now();
-    DateTime startDate = endDate.subtract(const Duration(days: 1));
-
-    List<UsageInfo> usageStats =
-        await UsageStats.queryUsageStats(startDate, endDate);
 
     for (var app in apps) {
-      UsageInfo? appUsageInfo;
-
-      for (var element in usageStats) {
-        if (element.packageName == app.packageName) {
-          appUsageInfo = element;
-          break;
-        }
-      }
-
-      int screenTime = 0;
-      DateTime lastTimeUsed = DateTime.utc(1970, 1, 1);
-
-      if (appUsageInfo != null) {
-        if (appUsageInfo.totalTimeInForeground != null) {
-          screenTime = int.parse(appUsageInfo.totalTimeInForeground!) /
-              1000 ~/
-              60; // Convert milliseconds to minutes
-        }
-        if (appUsageInfo.lastTimeUsed != null &&
-            appUsageInfo.lastTimeUsed!.isNotEmpty) {
-          int lastTimeUsedMillis =
-              int.tryParse(appUsageInfo.lastTimeUsed!) ?? 0;
-          if (lastTimeUsedMillis != 0) {
-            lastTimeUsed =
-                DateTime.fromMillisecondsSinceEpoch(lastTimeUsedMillis);
-          }
-        }
-      }
-
       AppInfo appInfo = AppInfo(
         name: app.appName,
-        packageName: app.packageName, 
-        screenTime: screenTime, 
-        lastTimeUsed: lastTimeUsed, 
-        timeAllocation: 0, 
+        packageName: app.packageName,
       );
 
       addAppInfo(childId, appInfo);
@@ -92,7 +46,8 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
         .collection('Apps')
         .doc(childId)
         .collection('UserApps')
-        .doc(appInfo.packageName).set(appInfo.toMap());
+        .doc(appInfo.packageName)
+        .set(appInfo.toMap());
   }
 
   @override

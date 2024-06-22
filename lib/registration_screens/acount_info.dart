@@ -6,6 +6,7 @@ import 'package:cyber_safeguard/qr_code/qr_code_scaner.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AccountInfoScreen extends StatefulWidget {
@@ -55,8 +56,7 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
           imageUrl = downloadURL;
         });
       });
-    } else {
-    }
+    } else {}
   }
 
   @override
@@ -150,6 +150,8 @@ class _AccountInfoScreenState extends State<AccountInfoScreen> {
                         ),
                       ElevatedButton(
                         onPressed: () {
+                          FlutterBackgroundService()
+                                .invoke('stopService');
                           FirebaseAuth.instance.signOut();
                         },
                         style: ElevatedButton.styleFrom(
