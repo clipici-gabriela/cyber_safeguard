@@ -21,7 +21,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:label="cyber_safeguard"
+        android:label="SafeTime"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

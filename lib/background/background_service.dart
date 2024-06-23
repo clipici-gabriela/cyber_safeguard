@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
 import 'package:usage_stats/usage_stats.dart';
+import 'package:cyber_safeguard/messages_configuration/notification_sender.dart';
 
 Future<void> initializeService() async {
   final service = FlutterBackgroundService();
@@ -93,8 +94,6 @@ Future<void> fetchAndLogAppUsage() async {
             int.tryParse(usage.totalTimeInForeground!) ?? 0;
         int appUsage = totalTimeInForeground ~/ 1000 ~/ 60;
 
-        print('Package Name: ${usage.packageName} and the usage: $appUsage');
-
         await updateFirebase(
           usage.packageName!,
           appUsage,
@@ -141,22 +140,31 @@ Future<void> updateFirebase(
         .collection('UserApps')
         .doc(packageName);
 
-    // Get the current data from Firestore
-    DocumentSnapshot docSnapshot = await appDocRef.get();
+    Application? app = await DeviceApps.getApp(packageName);
+    DocumentSnapshot appDoc = await appDocRef.get();
 
-    // If the document exists and has a 'lastTimeUsed' field, compare the timestamps
-    if (docSnapshot.exists && docSnapshot.data() != null) {
-      Timestamp? firestoreLastTimeUsed = docSnapshot['lastTimeUsed'];
+    if (appDoc.exists) {
+      var data = appDoc.data() as Map<String, dynamic>;
+      int timeAllocated = data['timeAllocation'] ?? 0;
+      int previousAppUsage = data['screenTime'] ?? 0;
+      bool notificationSent = data['notificationSent'] ?? false;
 
-      if (firestoreLastTimeUsed != null &&
-          lastTimeUsed.isBefore(firestoreLastTimeUsed.toDate())) {
-        // If the lastTimeUsed is not more recent, skip the update
-        print("Skipping update for package: $packageName as the lastTimeUsed is not more recent.");
-        return;
+      if (appUsage >= timeAllocated &&
+          previousAppUsage < timeAllocated &&
+          !notificationSent) {
+        sendNotificationToParent(
+          currentUser.uid,
+          app!.appName,
+          appUsage,
+        );
+        sendNotificationToChild(
+          currentUser.uid,
+          app.appName,
+          appUsage,
+        );
+        await appDocRef.update({'notificationSent': true});
       }
     }
-
-    Application? app = await DeviceApps.getApp(packageName);
 
     await appDocRef.set({
       'packageName': packageName,
@@ -179,5 +187,70 @@ Future<void> updateTotalDeviceScreenTime(int totalDeviceScreenTime) async {
         SetOptions(merge: true));
 
     print("Update total device screen time: $totalDeviceScreenTime");
+  }
+}
+
+Future<void> sendNotificationToChild(
+    String parentId, String appName, int appUsage) async {
+  final parentUserDoc =
+      await FirebaseFirestore.instance.collection('Users').doc(parentId).get();
+
+  if (parentUserDoc.exists) {
+    final parentData = parentUserDoc.data()!;
+    final fcmToken = parentData['fcmToken'];
+
+    if (fcmToken != null) {
+      final notificationSender = NotificationSender();
+      await notificationSender.sendNotification(
+        fcmToken,
+        null,
+        'Time Allocation Reached',
+        'You reached the allocated time for $appName with $appUsage minutes of usage.',
+      );
+    } else {
+      print("No FCM token for parent.");
+    }
+  } else {
+    print("No parent found with the given ID.");
+  }
+}
+
+Future<void> sendNotificationToParent(
+    String childId, String appName, int appUsage) async {
+  // Fetch parentId from Relationships collection
+  QuerySnapshot relationshipsSnapshot = await FirebaseFirestore.instance
+      .collection('Relationships')
+      .where('childId', isEqualTo: childId)
+      .get();
+
+  if (relationshipsSnapshot.docs.isNotEmpty) {
+    String parentId = relationshipsSnapshot.docs.first['parentId'];
+
+    // Fetch parent's FCM token
+    final parentUserDoc = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(parentId)
+        .get();
+
+    if (parentUserDoc.exists) {
+      final parentData = parentUserDoc.data()!;
+      final fcmToken = parentData['fcmToken'];
+
+      if (fcmToken != null) {
+        final notificationSender = NotificationSender();
+        await notificationSender.sendNotification(
+          fcmToken,
+          null,
+          'Time Allocation Reached',
+          'Your child has reached the allocated time for $appName with $appUsage minutes of usage.',
+        );
+      } else {
+        print("No FCM token for parent.");
+      }
+    } else {
+      print("No parent found with the given ID.");
+    }
+  } else {
+    print("No relationship found for the given child ID.");
   }
 }

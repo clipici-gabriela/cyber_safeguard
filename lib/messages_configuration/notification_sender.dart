@@ -48,7 +48,7 @@ class NotificationSender {
     return credentials.accessToken.data;
   }
 
-  sendNotification(String deviceToken, BuildContext context, String tripId, String title, String body) async {
+  sendNotification(String deviceToken, BuildContext? context, String title, String body) async {
 
     final String serviceKey = await getAccessToken();
 
