@@ -1,5 +1,5 @@
 ## Aplicație pentru controlul parental
-Această aplicație este destinată părinților ce doresc să monitorizeze timpul petrecut de copii pe dispozitivele mobile și să îi învețe pe cei mici să își gestioneze timpul atribuindu-le sarcini ce trebuie îndepliti într-un anumit interval de timp.
+Această aplicație este destinată părinților ce doresc să monitorizeze timpul petrecut de copii pe dispozitivele mobile și să îi învețe pe cei mici să își gestioneze timpul atribuindu-le sarcini ce trebuie îndeplinite într-un anumit interval de timp.
 
 ## Caracteristici
 - Înregistrarea și autentificarea în aplicație
