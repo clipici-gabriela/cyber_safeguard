@@ -143,7 +143,6 @@ class _AddNewTaskState extends State<AddNewTask> {
         await notificationSender.sendNotification(
           fcmToken,
           context,
-          '',
           'New Task Assigned',
           'You have a new task: $taskDescription',
         );

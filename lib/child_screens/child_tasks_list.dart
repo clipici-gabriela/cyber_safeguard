@@ -14,68 +14,25 @@ class TasksList extends StatefulWidget {
 }
 
 class _TasksListState extends State<TasksList> {
-  List<Task> _tasks = [];
+  String childUserId = '';
+  String name = '';
 
   @override
   void initState() {
     super.initState();
-    _fetchTasks();
+    _fetchChildUserIdAndName();
   }
 
-  Future<void> _fetchTasks() async {
-    String childUser = FirebaseAuth.instance.currentUser!.uid;
-    String name = '';
+  Future<void> _fetchChildUserIdAndName() async {
+    childUserId = FirebaseAuth.instance.currentUser!.uid;
 
     DocumentSnapshot childUserDoc = await FirebaseFirestore.instance
         .collection('Users')
-        .doc(childUser)
+        .doc(childUserId)
         .get();
     name = childUserDoc['firstName'];
 
-    QuerySnapshot tasksSnapshot = await FirebaseFirestore.instance
-        .collection('Tasks')
-        .where('assignedTo', isEqualTo: name)
-        .get();
-
-    List<Task> fetchedTasks = tasksSnapshot.docs.map((doc) {
-      Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-      return Task.fromFirestore(doc.id, data);
-    }).toList();
-
-    setState(() {
-      _tasks = fetchedTasks;
-    });
-  }
-
-  void _toggleTaskCompletion(Task task) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('Tasks')
-          .doc(task.id)
-          .update({'completed': !task.completed});
-
-      setState(() {
-        final taskIndex = _tasks.indexWhere((t) => t.id == task.id);
-        if (taskIndex != -1) {
-          _tasks[taskIndex] = Task(
-            id: _tasks[taskIndex].id,
-            parentId: _tasks[taskIndex].parentId,
-            description: _tasks[taskIndex].description,
-            assignedTo: _tasks[taskIndex].assignedTo,
-            deadline: _tasks[taskIndex].deadline,
-            completed: !_tasks[taskIndex].completed,
-          );
-
-          if (_tasks[taskIndex].completed) {
-            sendNotificationToParent(_tasks[taskIndex]);
-          }
-        }
-      });
-    } catch (error) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to update task: $error')),
-      );
-    }
+    setState(() {});
   }
 
   Future<void> sendNotificationToParent(Task task) async {
@@ -93,7 +50,6 @@ class _TasksListState extends State<TasksList> {
         await notificationSender.sendNotification(
           fcmToken,
           context,
-          '',
           'Task Completed',
           'Your child has completed the task: ${task.description}',
         );
@@ -105,33 +61,73 @@ class _TasksListState extends State<TasksList> {
     }
   }
 
+  void _toggleTaskCompletion(Task task) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('Tasks')
+          .doc(task.id)
+          .update({'completed': !task.completed});
+
+      if (!task.completed) {
+        sendNotificationToParent(task);
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to update task: $error')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'SafeSteps',
-        ),
+        title: const Text('SafeSteps'),
         backgroundColor: const Color.fromARGB(255, 117, 213, 243),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) {
-          final task = _tasks[index];
-          return ListTile(
-            title: Text(task.description),
-            trailing: Text(task.deadline.format(context)),
-            leading: IconButton(
-              icon: const Icon(Icons.check_circle_outline),
-              onPressed: () {
-                _toggleTaskCompletion(task);
+      body: childUserId.isEmpty || name.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('Tasks')
+                  .where('assignedTo', isEqualTo: name)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (snapshot.hasError) {
+                  return const Center(child: Text('Something went wrong'));
+                }
+                if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                  return const Center(child: Text('No tasks found'));
+                }
+
+                final tasks = snapshot.data!.docs.map((doc) {
+                  final data = doc.data() as Map<String, dynamic>;
+                  return Task.fromFirestore(doc.id, data);
+                }).toList();
+
+                return ListView.separated(
+                  itemBuilder: (context, index) {
+                    final task = tasks[index];
+                    return ListTile(
+                      title: Text(task.description),
+                      trailing: Text(task.deadline.format(context)),
+                      leading: IconButton(
+                        icon: const Icon(Icons.check_circle_outline),
+                        onPressed: () {
+                          _toggleTaskCompletion(task);
+                        },
+                        color: task.completed ? Colors.green : Colors.grey,
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: tasks.length,
+                );
               },
-              color: task.completed ? Colors.green : Colors.grey,
             ),
-          );
-        },
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: _tasks.length,
-      ),
     );
   }
 }
