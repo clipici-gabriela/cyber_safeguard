@@ -1,5 +1,5 @@
 ## Aplicație pentru controlul parental
-Această aplicație este destinată părinților ce doresc să ce doresc să monitorizeze timpul petrecut de copii pe dispozitivele mobile
+Această aplicație este destinată părinților ce doresc să monitorizeze timpul petrecut de copii pe dispozitivele mobile și să îi învețe pe cei mici să își gestioneze timpul atribuindu-le sarcini ce trebuie îndepliti într-un anumit interval de timp.
 
 ## Caracteristici
 - Înregistrarea și autentificarea în aplicație
@@ -9,31 +9,31 @@ Această aplicație este destinată părinților ce doresc să ce doresc să mon
 - Gestionarea sarcinilor atribuite copilului
 - Notificări referitoare la actualizarea sarcinilor
 
-  ## Precondiții
+## Precondiții
 - [Flutter](https://flutter.dev/docs/get-started/install)
 - [Firebase Account](https://firebase.google.com/)
 
-  ## Instalare
+## Instalare
 
-  1. **Clonarea repository-ului:**
+1. **Clonarea repository-ului:**
 
     ```bash
-    git clone https://github.com/MoazSayed7/Flutter-Animated-Auth-Screens-Firebase-Login-SignUp-Reset-SignWithGoogle.git
+    git clone https://github.com/clipici-gabriela/cyber_safeguard.git
     ```
     
-  2. **Navigați în proiect:**
+2. **Navigați în proiect:**
     ```bash
     cd cyber_safeguard
     ```
     
-  3. **Instalarea dependințelor:**
+3. **Instalarea dependințelor:**
   
     ```bash
     flutter pub get
     ```
-  4. **Configurarea Firebase:**
+4. **Configurarea Firebase:**
      Configurați Firebase utilizând [Using Firebase CLI](https://firebase.google.com/docs/flutter/setup).
-  5. **Rulați aplicația:**
+5. **Rulați aplicația:**
 
     ```bash
     flutter run
