@@ -39,4 +39,5 @@ Această aplicație este destinată părinților ce doresc să monitorizeze timp
     flutter run
     ```
   
-     
+  ## Demo:
+  https://github.com/user-attachments/assets/4f94a0f9-afd9-4d3e-b90b-ac02359af9a5
